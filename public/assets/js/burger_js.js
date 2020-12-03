@@ -28,7 +28,9 @@ $(function() {
         burger_name: $("#burg").val().trim(),
         devoured: $("[name=devoured]:checked").val().trim()
       };
-  
+      if(newBurger.burger_name == ""){
+        alert("Burger Name cannot be blank. Please enter a burger.")
+      } else {
       // Send the POST request.
       $.ajax("/api/burgers", {
         type: "POST",
@@ -38,8 +40,9 @@ $(function() {
           console.log("created new burger");
           // Reload the page to get the updated list
           location.reload();
-        }
-      );
+        
+      }
+      )};
     });
 
     $(".delete-burger").on("click", function(event) {

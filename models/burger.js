@@ -1,5 +1,6 @@
 const orm = require("../config/orm");
 
+// an object full of functions passing in values to our query functions from the orm
 let burger = {
     select: function(cb) {
         orm.selectAll("burgers", function(res) {

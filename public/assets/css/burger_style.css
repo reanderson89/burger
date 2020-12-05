@@ -11,13 +11,6 @@ li {
     display: table;
 margin: auto;  }
 
-  /* body {
-    background-image: url(../img/burger.png);
-  background-repeat: no-repeat;
-  background-color: rgb(230, 196, 153);
-  position: absolute;
-  } */
-
   body {
     background: 
 	url(../img/burger.png) 60% 90% no-repeat,

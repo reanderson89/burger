@@ -1,8 +1,6 @@
 const connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
-// Let's say we want to pass 3 values into the mySQL query.
-// In order to write the query, we need 3 question marks.
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
 function printQuestionMarks(num) {
@@ -24,12 +22,9 @@ function printQuestionMarks(num) {
       var value = ob[key];
       // check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
         }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
         arr.push(key + "=" + value);
       }
     }
@@ -38,7 +33,9 @@ function printQuestionMarks(num) {
     return arr.toString();
   }
 
+  // the query functions we will use in the burger.js model
 let orm = {
+  // selects all burgers from the db
     selectAll: function(tableInput,cb){
         let queryString = "SELECT * FROM "+tableInput+";";
         connection.query(queryString, function(err, res) {
@@ -48,6 +45,7 @@ let orm = {
             cb(res);
         });
     },
+    // adds one burger to the db
     insertOne: function(table, cols, vals, cb) {
         let queryString = "INSERT INTO " + table;
     
@@ -68,6 +66,7 @@ let orm = {
           cb(res);
         });
     },
+    // allows us to update the burger from devoured or not
     updateOne: function(table, objColVals, condition, cb) {
         let queryString = "UPDATE " + table;
     
@@ -85,6 +84,7 @@ let orm = {
           cb(res);
         });
 },
+// allows us to delete burgers from the db
 deleteOne: function(table, condition, cb) {
   var queryString = "DELETE FROM " + table;
   queryString += " WHERE ";

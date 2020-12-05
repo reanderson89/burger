@@ -1,8 +1,29 @@
+html {
+  text-align: center;
+}
+
 li {
     font-size: large;
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
+    background: #faebd7a2;
+    background-size: inherit;
+    display: table;
+margin: auto;  }
+
+  /* body {
+    background-image: url(../img/burger.png);
+  background-repeat: no-repeat;
+  background-color: rgb(230, 196, 153);
+  position: absolute;
+  } */
+
+  body {
+    background: 
+	url(../img/burger.png) 60% 90% no-repeat,
+	url(../img/burger.png) 40% 50% no-repeat,
+	url(../img/burger.png) 10% 20% no-repeat rgb(223, 195, 158);
+background-size: 240px 210px, auto, 150px;
   }
   
   .label {
@@ -13,9 +34,18 @@ li {
     padding: 5px;
     margin: 5px;
     background: aqua;
+    text-align: center;
+
   }
   
   .form-group {
     margin-bottom: 5px;
+    background: #faebd7ad;
+    backg
+    background-size: inherit;
+    display: table;
+    text-align: center;
+    margin: auto;  }
+
   }
   
